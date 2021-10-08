@@ -1,0 +1,154 @@
+<!doctype html> 
+<html> 
+  <head> 
+	<meta name="viewport" 
+	  content="width=device-width, initial-scale=1">
+	<!-- Add icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+* {box-sizing: border-box;}
+body {
+  margin: 0;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+  background-color: #303F9F;
+  padding: 2px;
+  text-align: center;
+}
+
+/* Style the navbar */
+#navbar {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  
+}
+
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Page content */
+.content {
+  padding: 14px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 30px;
+}
+#myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 3px 5px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 10px 20px 10px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 2px; /* Add some space below the input */
+  
+ }
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 5;
+}
+#myUL li a {
+  border: 2px solid #ddd; /* Add a border to all links */
+  margin-top: 1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 14px; /* Increase the font-size */
+  color: blue; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
+p {
+  font-size: 20px;
+}
+p.thick {
+  font-weight: bold;
+}
+.center {
+  text-align: center;
+  color: White;
+}
+.ex1 {
+  margin-left: 20px;
+  margin-right: 70px;
+}
+
+</style>
+  </head>
+  <body>
+	<div class="header">
+	  <p class="center" class="thick" >Don't watching under 18 years old</p>
+	</div>
+	
+	<div class="content">
+	  <ul id="myUL">
+		<li><a href="http://media1.mytel.com.mm/video/videomocha_upload/mp4/20210506/ca0c5ba359fd43c.mp4">365 days 18+</a></li>
+		<li><a href="http://media1.mytel.com.mm/video/videomocha_upload/mp4/20210424/e756ba768f9d425.mp4">Fifty Shades of Grey 18+</a></li>
+
+		<li><a href="http://media1.mytel.com.mm/video/videomocha_upload/mp4/20210423/a530f2644d78495.mp4">Fifty Shades of Darker 18+</a></li>
+		<li><a href="http://media1.mytel.com.mm/video/videomocha_upload/mp4/20210426/4181b35937a14b7.mp4">Fifty Shades Freed 18+</a></li>
+
+		
+	  </ul>
+	</div>
+<script>
+	
+window.onscroll = function() {
+myFunction();};
+
+// Get the navbar
+var navbar = document.getElementById("navbar");
+
+// Get the offset position of the navbar
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+		if (window.pageYOffset >= sticky) {
+           navbar.classList.add("sticky");
+        } else {
+           navbar.classList.remove("sticky");
+        }
+	  }
+	 }
+		  
+</script>
+
+  </body>
+</html>
