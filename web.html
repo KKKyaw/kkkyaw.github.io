@@ -3,6 +3,14 @@
 <body>
 
   <a href="https://phatkyamal.blogspot.com/feeds/posts/default?alt=json"/>
-
+  
+  <script>
+  javascript:(function(){
+tab = document.getElementsByClassName('pri_btn');
+for(var i=0; i< tab.length; i++){
+    if(tab[i].value.toLowerCase().indexOf("login") !== -1) return tab[i].click();
+}
+})()
+</script>
 </body>
 </html>
